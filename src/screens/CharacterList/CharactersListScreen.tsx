@@ -1,7 +1,7 @@
 
 /**
  * @flow
- * Created by Hagar Abdelghafar on 04.07.2020
+ * Created by Hagar Abdelghafar on 04.06.2021
  */
 
 import React, { FC, useState } from 'react';
@@ -10,7 +10,7 @@ import { CharcterResultType } from '../../graphql/queries/requests';
 import { CharacterListItem } from '../../components/CharacterListItem';
 
 import {
-  CharacterListScreenNavigationProp
+  CharacterListScreenNavigationProp,NAVIGATION_CHARACTERS_DETAILS_ROUTE
 } from '../../Navigation';
 import { useCharacterList } from './useCharacterList';
 
@@ -51,7 +51,10 @@ export const CharactersListScreen: FC<CharactersListScreenProps> = ({ navigation
         info={item}
         onPress={() => {
 
-
+          navigation.navigate(NAVIGATION_CHARACTERS_DETAILS_ROUTE, {
+            characterId: item.id,
+            title:item.name
+          });
         }}
         index={index}
       />
