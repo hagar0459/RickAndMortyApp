@@ -6,26 +6,16 @@ import React, { FC } from 'react';
 import { StyleSheet, FlatList, ListRenderItemInfo, Text, Alert } from 'react-native';
 import { CharacterDetailsItem } from '../../components/CharacterDetailsItem';
 import { EpisodInfoItem } from '../../components/EpisodInfoItem';
-import { EpisodeType, CharcterDetailsType } from '../../graphql/queries/requests';
-
+import { EpisodeType } from '../../graphql/queries/requests';
+import { useRoute } from '@react-navigation/native';
 import { useCharacterDetails } from './useCharacterDetails';
-import {
-  CharacterDetailscreenRouteProp,
-} from '../../Navigation';
-
-type CharactersDetailsScreenProps = {
-  route: CharacterDetailscreenRouteProp;
-};
 
 
-export const CharacterDetailsScreen: FC<CharactersDetailsScreenProps> = ({ route }: CharactersDetailsScreenProps) => {
 
-  const { characterId } = route.params;
-  debugger;
-
+export const CharacterDetailsScreen: FC= () => {
+  const route = useRoute();
   const { loading, data, error } = useCharacterDetails({
-    characterId: characterId,
-
+    characterId: route?.params?.characterId,
   });
 
 

@@ -4,27 +4,30 @@
  * Created by Hagar Abdelghafar on 04.06.2021
  */
 
-import React, { FC, useState } from 'react';
-import { FlatList, StyleSheet, ActivityIndicator, SafeAreaView, TextInput, View, ListRenderItemInfo, Alert } from 'react-native';
+import React, { FC, useState,useRef } from 'react';
+import { FlatList, StyleSheet, ActivityIndicator, SafeAreaView, TextInput, View, ListRenderItemInfo, Alert, Dimensions, Text } from 'react-native';
 import { CharcterResultType } from '../../graphql/queries/requests';
 import { CharacterListItem } from '../../components/CharacterListItem';
 
 import {
-  CharacterListScreenNavigationProp,NAVIGATION_CHARACTERS_DETAILS_ROUTE
+  NAVIGATION_CHARACTERS_DETAILS_ROUTE
 } from '../../Navigation';
+import { useNavigation } from '@react-navigation/native';
+
 import { useCharacterList } from './useCharacterList';
 
-type CharactersListScreenProps = {
-  navigation: CharacterListScreenNavigationProp;
-};
 
-export const CharactersListScreen: FC<CharactersListScreenProps> = ({ navigation }: CharactersListScreenProps) => {
+
+export const CharactersListScreen: FC= () => {
+  let  FlatListref=useRef;
 
   const [searchTxt, setsearchTxt] = useState("")
   const { loading, characters, loadMore, error } = useCharacterList({
     searchTxt: searchTxt,
     pageNumber: 1,
   });
+
+  const navigation = useNavigation();
 
   if (error) {
     if (!characters) {
@@ -44,6 +47,17 @@ export const CharactersListScreen: FC<CharactersListScreenProps> = ({ navigation
     return null;
   };
 
+
+  const listEmptyComponent = () => {
+    if (!loading && characters.length === 0) {
+      return (
+        <View style={{justifyContent:'center',alignItems:'center',width:'100%'}}>
+          <Text style={{textAlign:'center'}}> No Characters Found !!!</Text> 
+        </View>
+      );
+    }
+    return null;
+  };
 
   const renderCharacter = ({ item, index }: ListRenderItemInfo<CharcterResultType>) => {
     return (
@@ -72,7 +86,9 @@ export const CharactersListScreen: FC<CharactersListScreenProps> = ({ navigation
           style={styles.input}
           placeholder="search..."
           onChangeText={(text) => {
+            FlatListref.scrollToOffset({offest: 0,animated:true});
             setsearchTxt(text)
+
           }}
           autoCorrect={false}
           value={searchTxt}
@@ -82,6 +98,7 @@ export const CharactersListScreen: FC<CharactersListScreenProps> = ({ navigation
 
       <FlatList
         keyboardShouldPersistTaps="never"
+        ref={(ref)=>{FlatListref=ref}}
         style={styles.charctersList}
         contentContainerStyle={styles.charctersListContainer}
         data={characters}
@@ -89,6 +106,8 @@ export const CharactersListScreen: FC<CharactersListScreenProps> = ({ navigation
         renderItem={renderCharacter}
         onEndReached={loadMore}
         ListFooterComponent={footerComponent}
+        ListEmptyComponent={listEmptyComponent}
+
       />
 
 

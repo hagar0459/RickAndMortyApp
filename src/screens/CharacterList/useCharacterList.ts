@@ -55,6 +55,7 @@ export const useCharacterList = ({ searchTxt, pageNumber }: Props): Result => {
 
   useEffect(() => {
     setCurrentPage(pageNumber);
+  
   }, [searchTxt]);
 
   const loadMore = () => {

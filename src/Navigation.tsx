@@ -32,18 +32,6 @@ export type RootStackParamList = {
 const Stack = createStackNavigator<RootStackParamList>();
 
 
-
-export type CharacterListScreenNavigationProp = StackNavigationProp<
-  RootStackParamList,
-  typeof NAVIGATION_CHARACTERS_LIST_ROUTE
->;
-
-export type CharacterDetailscreenRouteProp = RouteProp<
-  RootStackParamList,
-  typeof NAVIGATION_CHARACTERS_DETAILS_ROUTE
->;
-
-
 const RootStack = () => {
 
   return (
@@ -62,7 +50,7 @@ const RootStack = () => {
     <Stack.Screen
       name={NAVIGATION_CHARACTERS_LIST_ROUTE}
       component={CharactersListScreen}
-      options={({ navigation, route }) => ({
+      options={({ }) => ({
         title: 'Rick & Marty'
       })}
     
@@ -71,8 +59,8 @@ const RootStack = () => {
     
       name={NAVIGATION_CHARACTERS_DETAILS_ROUTE}
       component={CharacterDetailsScreen}
-      options={({ navigation, route }) => ({
-        characterId:route?.params?.characterId ??1,
+      options={({  route }) => ({
+        characterId:route?.params?.characterId,
         title: route?.params?.title ?? 'Details',
       })}
     />
