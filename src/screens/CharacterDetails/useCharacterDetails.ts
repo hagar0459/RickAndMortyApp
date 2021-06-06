@@ -23,6 +23,8 @@ type Result = {
 export const useCharacterDetails = ({ characterId }: Props): Result => {
   const [getCharacterDetails, { data, error, loading }] =
     useLazyQuery<CharcterDetailsType>(GET_CHARACTER_DETAILS, {
+      fetchPolicy: "cache-and-network",
+      nextFetchPolicy: "cache-first",
       variables: {
         id: characterId,
       },

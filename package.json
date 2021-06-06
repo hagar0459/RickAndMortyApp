@@ -10,10 +10,10 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@apollo/client": "^3.3.19",
     "@apollo/react-components": "^3.1.0",
     "@apollo/react-hooks": "^3.1.0",
     "@apollo/react-testing": "^3.1.0",
-    "@apollo/client": "3.1.0",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-navigation/native": "^5.9.4",
     "@react-navigation/stack": "^5.14.5",

@@ -7,7 +7,7 @@ import App from '../src/App';
 import renderer from 'react-test-renderer';
 import {Navigation} from '../src/Navigation';
 
-describe('Testing react navigation', () => {
+describe('Testing App Navigation', () => {
 
 
   test('clicking on one character takes you to the details screen for this character', async () => {
@@ -15,7 +15,7 @@ describe('Testing react navigation', () => {
         <Navigation />
     );
 
-    const { findAllByTestId } = render(component);
+    const { findAllByTestId,findByText } = render(component);
     const toClick = await findAllByTestId('Rick Sanchez');
 
     fireEvent(toClick, 'press');

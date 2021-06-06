@@ -30,6 +30,8 @@ export const useCharacterList = ({ searchTxt, pageNumber }: Props): Result => {
 
   const [getCharactersList, { data, error, loading }] =
     useLazyQuery<CharcterListType>(SEARCH_CHARACTER, {
+      fetchPolicy: "cache-and-network",
+      nextFetchPolicy: "cache-first",
       variables: {
         page: currentPage,
         name: searchTxt,

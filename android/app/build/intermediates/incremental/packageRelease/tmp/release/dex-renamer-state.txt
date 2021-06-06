@@ -1,0 +1,4 @@
+#Sun Jun 06 03:51:51 EET 2021
+base.0=/Users/hagar/Desktop/RickAndMortyApp/android/app/build/intermediates/dex/release/mergeDexRelease/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

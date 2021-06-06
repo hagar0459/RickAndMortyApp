@@ -3,7 +3,7 @@
  * Created by Hagar Abdelghafar on 05.06.2021
  */
 import React, { FC } from 'react';
-import { StyleSheet, FlatList, ListRenderItemInfo, Text, Alert } from 'react-native';
+import { StyleSheet, FlatList, ListRenderItemInfo, Text, Alert ,  SafeAreaView} from 'react-native';
 import { CharacterDetailsItem } from '../../components/CharacterDetailsItem';
 import { EpisodInfoItem } from '../../components/EpisodInfoItem';
 import { EpisodeType } from '../../graphql/queries/requests';
@@ -33,12 +33,14 @@ export const CharacterDetailsScreen: FC= () => {
   }
 
   return (
-    <>
+    <SafeAreaView>
 
       <CharacterDetailsItem
         info={data}
       ></CharacterDetailsItem>
+      {!error&&
       <Text style={{ marginHorizontal: 20, fontSize: 16, fontWeight: '600' }}>Episods:</Text>
+      }
       <FlatList
         numColumns={2}
         data={data?.character.episode}
@@ -47,7 +49,7 @@ export const CharacterDetailsScreen: FC= () => {
       />
 
 
-    </>
+    </SafeAreaView>
   );
 }
 

@@ -57,7 +57,7 @@ it('Screen Shows CharacterDetailsItem', () => {
     expect(() => component.root.findByType(CharacterDetailsItem)).not.toThrow();
   });
 
-it('shows CHARACTER DETAILS', async () => {
+it('Shows Charcter Details', async () => {
     const mockedData = {
       request: {
         query: GET_CHARACTER_DETAILS,
@@ -66,119 +66,184 @@ it('shows CHARACTER DETAILS', async () => {
       },
       result: {
         "data": {
-          "characters": {
-            "results": [
+          "character": {
+            "name": "Rick Sanchez",
+            "id": "1",
+            "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+            "gender": "Male",
+            "species": "Human",
+            "episode": [
               {
-                "name": "Rick Sanchez",
-                "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-                "id": "1"
+                "air_date": "December 2, 2013",
+                "name": "Pilot"
               },
               {
-                "name": "Morty Smith",
-                "image": "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
-                "id": "2"
+                "air_date": "December 9, 2013",
+                "name": "Lawnmower Dog"
               },
               {
-                "name": "Summer Smith",
-                "image": "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
-                "id": "3"
+                "air_date": "December 16, 2013",
+                "name": "Anatomy Park"
               },
               {
-                "name": "Beth Smith",
-                "image": "https://rickandmortyapi.com/api/character/avatar/4.jpeg",
-                "id": "4"
+                "air_date": "January 13, 2014",
+                "name": "M. Night Shaym-Aliens!"
               },
               {
-                "name": "Jerry Smith",
-                "image": "https://rickandmortyapi.com/api/character/avatar/5.jpeg",
-                "id": "5"
+                "air_date": "January 20, 2014",
+                "name": "Meeseeks and Destroy"
               },
               {
-                "name": "Abadango Cluster Princess",
-                "image": "https://rickandmortyapi.com/api/character/avatar/6.jpeg",
-                "id": "6"
+                "air_date": "January 27, 2014",
+                "name": "Rick Potion #9"
               },
               {
-                "name": "Abradolf Lincler",
-                "image": "https://rickandmortyapi.com/api/character/avatar/7.jpeg",
-                "id": "7"
+                "air_date": "March 10, 2014",
+                "name": "Raising Gazorpazorp"
               },
               {
-                "name": "Adjudicator Rick",
-                "image": "https://rickandmortyapi.com/api/character/avatar/8.jpeg",
-                "id": "8"
+                "air_date": "March 17, 2014",
+                "name": "Rixty Minutes"
               },
               {
-                "name": "Agency Director",
-                "image": "https://rickandmortyapi.com/api/character/avatar/9.jpeg",
-                "id": "9"
+                "air_date": "March 24, 2014",
+                "name": "Something Ricked This Way Comes"
               },
               {
-                "name": "Alan Rails",
-                "image": "https://rickandmortyapi.com/api/character/avatar/10.jpeg",
-                "id": "10"
+                "air_date": "April 7, 2014",
+                "name": "Close Rick-counters of the Rick Kind"
               },
               {
-                "name": "Albert Einstein",
-                "image": "https://rickandmortyapi.com/api/character/avatar/11.jpeg",
-                "id": "11"
+                "air_date": "April 14, 2014",
+                "name": "Ricksy Business"
               },
               {
-                "name": "Alexander",
-                "image": "https://rickandmortyapi.com/api/character/avatar/12.jpeg",
-                "id": "12"
+                "air_date": "July 26, 2015",
+                "name": "A Rickle in Time"
               },
               {
-                "name": "Alien Googah",
-                "image": "https://rickandmortyapi.com/api/character/avatar/13.jpeg",
-                "id": "13"
+                "air_date": "August 2, 2015",
+                "name": "Mortynight Run"
               },
               {
-                "name": "Alien Morty",
-                "image": "https://rickandmortyapi.com/api/character/avatar/14.jpeg",
-                "id": "14"
+                "air_date": "August 9, 2015",
+                "name": "Auto Erotic Assimilation"
               },
               {
-                "name": "Alien Rick",
-                "image": "https://rickandmortyapi.com/api/character/avatar/15.jpeg",
-                "id": "15"
+                "air_date": "August 16, 2015",
+                "name": "Total Rickall"
               },
               {
-                "name": "Amish Cyborg",
-                "image": "https://rickandmortyapi.com/api/character/avatar/16.jpeg",
-                "id": "16"
+                "air_date": "August 23, 2015",
+                "name": "Get Schwifty"
               },
               {
-                "name": "Annie",
-                "image": "https://rickandmortyapi.com/api/character/avatar/17.jpeg",
-                "id": "17"
+                "air_date": "August 30, 2015",
+                "name": "The Ricks Must Be Crazy"
               },
               {
-                "name": "Antenna Morty",
-                "image": "https://rickandmortyapi.com/api/character/avatar/18.jpeg",
-                "id": "18"
+                "air_date": "September 13, 2015",
+                "name": "Big Trouble in Little Sanchez"
               },
               {
-                "name": "Antenna Rick",
-                "image": "https://rickandmortyapi.com/api/character/avatar/19.jpeg",
-                "id": "19"
+                "air_date": "September 20, 2015",
+                "name": "Interdimensional Cable 2: Tempting Fate"
               },
               {
-                "name": "Ants in my Eyes Johnson",
-                "image": "https://rickandmortyapi.com/api/character/avatar/20.jpeg",
-                "id": "20"
+                "air_date": "September 27, 2015",
+                "name": "Look Who's Purging Now"
+              },
+              {
+                "air_date": "October 4, 2015",
+                "name": "The Wedding Squanchers"
+              },
+              {
+                "air_date": "April 1, 2017",
+                "name": "The Rickshank Rickdemption"
+              },
+              {
+                "air_date": "July 30, 2017",
+                "name": "Rickmancing the Stone"
+              },
+              {
+                "air_date": "August 6, 2017",
+                "name": "Pickle Rick"
+              },
+              {
+                "air_date": "August 13, 2017",
+                "name": "Vindicators 3: The Return of Worldender"
+              },
+              {
+                "air_date": "August 20, 2017",
+                "name": "The Whirly Dirly Conspiracy"
+              },
+              {
+                "air_date": "August 27, 2017",
+                "name": "Rest and Ricklaxation"
+              },
+              {
+                "air_date": "September 10, 2017",
+                "name": "The Ricklantis Mixup"
+              },
+              {
+                "air_date": "September 17, 2017",
+                "name": "Morty's Mind Blowers"
+              },
+              {
+                "air_date": "September 24, 2017",
+                "name": "The ABC's of Beth"
+              },
+              {
+                "air_date": "October 1, 2017",
+                "name": "The Rickchurian Mortydate"
+              },
+              {
+                "air_date": "November 10, 2019",
+                "name": "Edge of Tomorty: Rick, Die, Rickpeat"
+              },
+              {
+                "air_date": "November 17, 2019",
+                "name": "The Old Man and the Seat"
+              },
+              {
+                "air_date": "November 24, 2019",
+                "name": "One Crew Over the Crewcoo's Morty"
+              },
+              {
+                "air_date": "December 8, 2019",
+                "name": "Claw and Hoarder: Special Ricktim's Morty"
+              },
+              {
+                "air_date": "December 15, 2019",
+                "name": "Rattlestar Ricklactica"
+              },
+              {
+                "air_date": "May 3, 2020",
+                "name": "Never Ricking Morty"
+              },
+              {
+                "air_date": "May 10, 2020",
+                "name": "Promortyus"
+              },
+              {
+                "air_date": "May 17, 2020",
+                "name": "The Vat of Acid Episode"
+              },
+              {
+                "air_date": "May 24, 2020",
+                "name": "Childrick of Mort"
+              },
+              {
+                "air_date": "May 31, 2020",
+                "name": "Star Mort: Rickturn of the Jerri"
               }
-            ],
-            "info": {
-              "next": 2,
-              "count": 671
-            }
+            ]
           }
         },
       },
     };
     const component = renderer.create(
-      <MockedProvider mocks={[mockedData]} addTypename={false}>
+      <MockedProvider mocks={[mockedData]} addTypename={false} >
         <CharacterDetailsScreen />
       </MockedProvider>,
     );
@@ -187,9 +252,11 @@ it('shows CHARACTER DETAILS', async () => {
 
     console.log(component.toJSON());
     expect(() => {
-   
+      component.root.findByProps({
+        children: 'Male',
+      });
     });
-
+  
   });
 
 

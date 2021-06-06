@@ -1,0 +1,9 @@
+com/rickandmorty/BuildConfig.java
+ com.rickandmorty.BuildConfig
+com/rickandmorty/MainApplication.java
+ com.rickandmorty.MainApplication
+ com.rickandmorty.MainApplication$1
+com/rickandmorty/MainActivity.java
+ com.rickandmorty.MainActivity
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList

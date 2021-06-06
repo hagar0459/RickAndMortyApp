@@ -30,7 +30,7 @@ export const CharactersListScreen: FC= () => {
   const navigation = useNavigation();
 
   if (error) {
-    if (!characters) {
+    if (!characters||error.includes('Network')) {
       Alert.alert(error)
     }
   }
@@ -52,7 +52,12 @@ export const CharactersListScreen: FC= () => {
     if (!loading && characters.length === 0) {
       return (
         <View style={{justifyContent:'center',alignItems:'center',width:'100%'}}>
+         { error?.includes('Network')&&
+                   <Text style={{textAlign:'center'}}> Network Error!!!</Text> 
+         }
+         {!error&&
           <Text style={{textAlign:'center'}}> No Characters Found !!!</Text> 
+         }
         </View>
       );
     }
