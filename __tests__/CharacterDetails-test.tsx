@@ -1,68 +1,79 @@
 import * as React from 'react';
-import {CharacterDetailsScreen  } from '../src/screens/CharacterDetails/CharacterDetailsScreen';
+import { CharacterDetailsScreen } from '../src/screens/CharacterDetails/CharacterDetailsScreen';
 import renderer from 'react-test-renderer';
-import {MockedProvider} from '@apollo/client/testing';
-import {GET_CHARACTER_DETAILS} from '../src/graphql/queries/requests';
-import {FlatList ,Image} from 'react-native';
-import{CharacterDetailsItem} from '../src/components/CharacterDetailsItem'
-import{EpisodInfoItem} from '../src/components/EpisodInfoItem'
+import { MockedProvider } from '@apollo/client/testing';
+import { GET_CHARACTER_DETAILS } from '../src/graphql/queries/requests';
+import { FlatList, Image } from 'react-native';
+import { CharacterDetailsItem } from '../src/components/CharacterDetailsItem'
 
-async function wait(ms = 0) {
-  await renderer.act(() => {
-    return new Promise(resolve => {
-      setTimeout(resolve, ms);
-    });
-  });
+
+
+async function wait( ms = 0 )
+{
+  await renderer.act( () =>
+  {
+    return new Promise( resolve =>
+    {
+      setTimeout( resolve, ms );
+    } );
+  } );
 }
 
-describe('Testing CharacterDetailsScreen', () => {
+describe( 'Testing CharacterDetailsScreen', () =>
+{
 
-it('Screen Shows FlatList', () => {
+  it( 'Screen Shows FlatList', () =>
+  {
     const component = renderer.create(
       <MockedProvider>
         <CharacterDetailsScreen />
       </MockedProvider>,
     );
 
-    expect(() => component.root.findByType(FlatList)).not.toThrow();
-  });
+    expect( () => component.root.findByType( FlatList ) ).not.toThrow();
+  } );
 
-it('Screen Shows Image', () => {
+  it( 'Screen Shows Image', () =>
+  {
     const component = renderer.create(
       <MockedProvider>
         <CharacterDetailsScreen />
       </MockedProvider>,
     );
 
-    expect(() => component.root.findByType(Image)).not.toThrow();
-  });
+    expect( () => component.root.findByType( Image ) ).not.toThrow();
+  } );
 
-it('Screen Shows EpisodInfoItem', () => {
+  // it( 'Screen Shows EpisodInfoItem', () =>
+  // {
+  //   const component = renderer.create(
+  //     <MockedProvider>
+  //       <CharacterDetailsScreen />
+  //     </MockedProvider>,
+  //   );
+
+  //   expect( () => component.root.findByType( EpisodInfoItem ) ).not.toThrow();
+  // } );
+
+  it( 'Screen Shows CharacterDetailsItem', () =>
+  {
     const component = renderer.create(
       <MockedProvider>
         <CharacterDetailsScreen />
       </MockedProvider>,
     );
 
-    expect(() => component.root.findByType(EpisodInfoItem)).not.toThrow();
-  });
+    expect( () => component.root.findByType( CharacterDetailsItem ) ).not.toThrow();
+  } );
 
-it('Screen Shows CharacterDetailsItem', () => {
-    const component = renderer.create(
-      <MockedProvider>
-        <CharacterDetailsScreen />
-      </MockedProvider>,
-    );
-
-    expect(() => component.root.findByType(CharacterDetailsItem)).not.toThrow();
-  });
-
-it('Shows Charcter Details', async () => {
+  it( 'Shows Charcter Details', async () =>
+  {
     const mockedData = {
       request: {
         query: GET_CHARACTER_DETAILS,
-        variables: { 
-          id: 1}
+        variables: {
+          id: 1
+        }
       },
       result: {
         "data": {
@@ -250,14 +261,15 @@ it('Shows Charcter Details', async () => {
 
     await wait();
 
-    console.log(component.toJSON());
-    expect(() => {
-      component.root.findByProps({
+    console.log( component.toJSON() );
+    expect( () =>
+    {
+      component.root.findByProps( {
         children: 'Male',
-      });
-    });
-  
-  });
+      } );
+    } );
+
+  } );
 
 
-});
+} );

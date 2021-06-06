@@ -15,61 +15,52 @@ import { CharacterDetailsScreen } from './screens/CharacterDetails/CharacterDeta
 
 export const NAVIGATION_CHARACTERS_LIST_ROUTE = 'NAVIGATION_CHARACTERS_LIST_ROUTE';
 export const NAVIGATION_CHARACTERS_DETAILS_ROUTE = 'NAVIGATION_CHARACTERS_DETAILS_ROUTE';
-
 export type RootStackParamList = {
-
-  [NAVIGATION_CHARACTERS_LIST_ROUTE]: {
-   
-  };
+  [NAVIGATION_CHARACTERS_LIST_ROUTE]: undefined;
   [NAVIGATION_CHARACTERS_DETAILS_ROUTE]: {
     characterId: number;
     title: string;
   };
- 
 };
 
 
+
 const Stack = createStackNavigator<RootStackParamList>();
-
-
-const RootStack = () => {
-
+const RootStack = () =>
+{
   return (
-
     <Stack.Navigator
-   screenOptions={() => ({
-      headerBackTitleVisible: false,
-      headerTintColor: 'black',
-      headerTitleStyle: {
-        fontSize: 24,
-        fontWeight: '300',
-      },
-      headerBackImage: () => <Icon name="chevron-left" size={48} />,
-    })}
+      screenOptions={() => ( {
+        headerBackTitleVisible: false,
+        headerTintColor: 'black',
+        headerTitleStyle: {
+          fontSize: 24,
+          fontWeight: '300',
+        },
+        headerBackImage: () => <Icon name="chevron-left" size={48} />,
+      } )}
     >
-    <Stack.Screen
-      name={NAVIGATION_CHARACTERS_LIST_ROUTE}
-      component={CharactersListScreen}
-      options={({ }) => ({
-        title: 'Rick & Marty'
-      })}
-    
-    />
-    <Stack.Screen
-    
-      name={NAVIGATION_CHARACTERS_DETAILS_ROUTE}
-      component={CharacterDetailsScreen}
-      options={({  route }) => ({
-        characterId:route?.params?.characterId,
-        title: route?.params?.title ?? 'Details',
-      })}
-    />
-   
+      <Stack.Screen
+        name={NAVIGATION_CHARACTERS_LIST_ROUTE}
+        component={CharactersListScreen}
+        options={( { } ) => ( {
+          title: 'Rick & Marty'
+        } )}
+      />
+      <Stack.Screen
+        name={NAVIGATION_CHARACTERS_DETAILS_ROUTE}
+        component={CharacterDetailsScreen}
+        options={( { route } ) => ( {
+          characterId: route?.params?.characterId,
+          title: route?.params?.title ?? 'Details',
+        } )}
+      />
     </Stack.Navigator>
   );
 };
 
-export const Navigation:React.FC = () => {
+export const Navigation: React.FC = () =>
+{
   return (
     <NavigationContainer>
       <RootStack />

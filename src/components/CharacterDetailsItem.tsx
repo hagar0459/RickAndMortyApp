@@ -5,26 +5,20 @@
 import React, { FC } from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import type { CharcterDetailsType } from '../graphql/queries/requests';
-
-
 type Props = {
   info: CharcterDetailsType | undefined;
 };
-
-
-export const CharacterDetailsItem: FC<Props> = ({ info }: Props) => {
-
+export const CharacterDetailsItem: FC<Props> = ( { info }: Props ) =>
+{
   const renderInfoContainer = () => (
     <View style={styles.infoContainer}>
       <Text style={styles.name}>{info?.character.name}</Text>
       <Text style={styles.gender}>{info?.character.gender}</Text>
-
-
       <Text style={styles.species}>{info?.character.species}</Text>
-
     </View>
   );
-  const renderImage = () => {
+  const renderImage = () =>
+  {
     return (
       <Image
         style={styles.image}
@@ -33,21 +27,15 @@ export const CharacterDetailsItem: FC<Props> = ({ info }: Props) => {
       />
     );
   };
-
-  const renderContent = () => {
-
+  const renderContent = () =>
+  {
     return (
       <>
         {renderImage()}
         {renderInfoContainer()}
-
       </>
     );
-
-
   };
-
-
   return (
     <View style={styles.card} >
       {renderContent()}
@@ -55,16 +43,13 @@ export const CharacterDetailsItem: FC<Props> = ({ info }: Props) => {
   );
 }
 
-const styles = StyleSheet.create({
-
+const styles = StyleSheet.create( {
   card: {
     borderRadius: 0,
     marginBottom: 20
-
   },
   image: {
     height: 150,
-
   },
   infoContainer: {
     padding: 16,
@@ -83,4 +68,4 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     color: '#787878',
   },
-});
+} );

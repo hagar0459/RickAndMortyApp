@@ -2,8 +2,7 @@
  * @flow
  * Created by Hagar Abdelghafar on 04.06.2021
  */
-import { gql } from "@apollo/client";
-
+import { gql } from '@apollo/client';
 export const SEARCH_CHARACTER = gql`
   query SearchCharacter($page: Int!, $name: String!) {
     characters(page: $page, filter: { name: $name }) {
@@ -19,7 +18,6 @@ export const SEARCH_CHARACTER = gql`
     }
   }
 `;
-
 export const GET_CHARACTER_DETAILS = gql`
   query GetCharacterDetails($id: ID!) {
     character(id: $id) {
@@ -35,20 +33,17 @@ export const GET_CHARACTER_DETAILS = gql`
     }
   }
 `;
-
 export type CharcterListType = {
   characters: {
     info: characterListInfoType;
     results: Array<CharcterResultType>;
   };
 };
-
 export type CharcterResultType = {
   id: number;
   name: string;
   image: string;
 };
-
 export type characterListInfoType = {
   next: number | null;
   count: number;

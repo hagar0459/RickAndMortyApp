@@ -23,10 +23,13 @@ type Result = {
   error: string | undefined;
 };
 
-export const useCharacterList = ({ searchTxt, pageNumber }: Props): Result => {
+export const useCharacterListWithFetchMore = ({
+  searchTxt,
+  pageNumber,
+}: Props): Result => {
   const [characters, setcharacters] = useState<CharcterResultType[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [getCharactersList, { data, error, loading }] =
+  const [getCharactersList, { data, error, loading, fetchMore }] =
     useLazyQuery<CharcterListType>(SEARCH_CHARACTER, {
       variables: {
         page: currentPage,
@@ -37,6 +40,9 @@ export const useCharacterList = ({ searchTxt, pageNumber }: Props): Result => {
   useEffect(() => {
     if (!loading) {
       getCharactersList();
+      // return () => {
+      //   unsubscribe();
+      // };
     }
   }, [currentPage, getCharactersList]);
 
@@ -56,13 +62,33 @@ export const useCharacterList = ({ searchTxt, pageNumber }: Props): Result => {
   }, [searchTxt]);
 
   const loadMore = () => {
-    if (loading) {
-      return;
-    } else if (data) {
-      if (characters.length < data?.characters?.info?.count) {
-        setCurrentPage(currentPage + 1);
-      }
-    }
+    pageNumber++;
+    debugger;
+    if (data?.characters?.info?.next)
+      fetchMore({
+        variables: {
+          page: pageNumber,
+          name: searchTxt,
+        },
+        updateQuery: (prev, { fetchMoreResult }) => {
+          if (!fetchMoreResult) return prev;
+          const subscriptionResponse = fetchMoreResult.characters.results;
+
+          const newCache = Object.assign({}, prev, {
+            characters: {
+              results: [subscriptionResponse, ...prev.characters.results],
+            },
+          });
+
+          return newCache;
+
+          // if (!fetchMoreResult) return prev;
+          // return (fetchMoreResult.characters.results = [
+          //   ...prev.characters.results,
+          //   ...fetchMoreResult.characters.results,
+          // ]);
+        },
+      });
   };
 
   return {
