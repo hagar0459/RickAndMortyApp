@@ -10,7 +10,7 @@ import {Navigation} from '../src/Navigation';
 describe('Testing App Navigation', () => {
 
 
-  test('clicking on one character takes you to the details screen for this character', async () => {
+  it('clicking on one character takes you to the details screen for this character', async () => {
     const component = (
         <Navigation />
     );
