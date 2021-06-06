@@ -40,7 +40,7 @@ export const useCharacterList = ({ searchTxt, pageNumber }: Props): Result => {
     if (!loading) {
       getCharactersList();
     }
-  }, [currentPage, getCharactersList]); // eslint-disable-line
+  }, [currentPage, getCharactersList]); 
 
   useEffect(() => {
     if (data?.characters?.results && currentPage === 1) {

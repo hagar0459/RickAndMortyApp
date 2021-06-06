@@ -18,7 +18,7 @@ const App: FC = () => {
 
       <Navigation />
 
-    </ApolloProvider>
+  </ApolloProvider>
 
   );
 };
