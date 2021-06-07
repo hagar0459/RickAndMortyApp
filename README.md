@@ -33,8 +33,8 @@ Second Screen, Character details page:
 
 
 ## Screenshots
-![First Screen ](./img/screenshotone.png)
-![Second Screen ](./img/screenshottwo.png)
+![First Screen ](./img/screenshotfirstscreen.png)
+![Second Screen ](./img/screenshotsecondscreen..png)
 
 
 ## Setup
