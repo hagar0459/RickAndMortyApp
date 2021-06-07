@@ -34,7 +34,7 @@ Second Screen, Character details page:
 
 ## Screenshots
 ![First Screen ](./img/screenshotfirstscreen.png)
-![Second Screen ](./img/screenshotsecondscreen..png)
+![Second Screen ](./img/screenshotsecondscreen.png)
 
 
 ## Setup
