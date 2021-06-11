@@ -1,5 +1,5 @@
 # Rick and Morty React Native
-> Task Solution For Rick And Morty with React NATIVE 
+> Solution For Rick And Morty with React NATIVE  -typescript- graphql- unit testing
 
 ## Table of Contents
 * [General Info](#general-information)
