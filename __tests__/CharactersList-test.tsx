@@ -483,6 +483,19 @@ describe( 'Testing CharactersList', () =>
     // expect(getAllByText( "rick" ) ).toHaveLength( 1 );
   } );
 
+
+  test( 'Snapshot Test', () =>
+  {
+    const tree = renderer
+      .create( <CharactersListScreen /> )
+      .toJSON();
+    expect( tree ).toMatchSnapshot();
+  } );
+
+
+
+
+
   //pagination (onEndReach )
   //errors handling 
 } );

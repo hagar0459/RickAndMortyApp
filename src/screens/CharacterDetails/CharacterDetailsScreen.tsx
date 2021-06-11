@@ -20,11 +20,11 @@ import { useCharacterDetails } from './useCharacterDetails';
 import { RootStackParamList } from './../../Navigation'
 type ProfileScreenRouteProp = RouteProp<RootStackParamList, 'NAVIGATION_CHARACTERS_DETAILS_ROUTE'>;
 
-export const CharacterDetailsScreen: FC<ProfileScreenRouteProp> = () =>
+export const CharacterDetailsScreen: FC = () =>
 {
   const route = useRoute<ProfileScreenRouteProp>();
   const { data, error } = useCharacterDetails( {
-    characterId: route.params?.characterId
+    characterId: route?.params?.characterId
   } );
   if ( error )
   {
